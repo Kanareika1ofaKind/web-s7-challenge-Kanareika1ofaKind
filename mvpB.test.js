@@ -14,7 +14,34 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     [4] sum('1', 2) // returns 3
     [5] sum('10', '3') // returns 13
   */
+  test("[1] sum() // throws an error 'pass valid numbers'", () => {
+    expect(() => {
+      sum(1);
+    })
+      .toThrowError('pass valid numbers');
+  });
 
+  test("[2] sum(2, 'seven') // throws an error 'pass valid numbers'", () => {
+    expect(() => {
+      sum(2, 'seven'); npm
+    })
+      .toThrowError('pass valid numbers');
+  });
+
+  test("[3] sum(1, 3) // returns 4", () => {
+    expect(sum(1, 3))
+      .toEqual(4)
+  });
+
+  test("[4] sum(1, 2) // returns 3", () => {
+    expect(sum(1, 2))
+      .toEqual(3)
+  });
+
+  test("[5] sum(10, 3) // returns 13", () => {
+    expect(sum(10, 3))
+      .toEqual(13)
+  });
   /*
   👉 TASK 2 - Integration Testing of HelloWorld component at the bottom of this module
 
@@ -29,8 +56,12 @@ describe('Sprint 7 Challenge Learner Tests', () => {
     [5] renders a text that reads "JavaScript is pretty awesome"
     [6] renders a text that includes "javaScript is pretty" (use exact = false)
   */
-  test('you can comment out this test', () => {
-    expect(true).toBe(false)
+  // test('you can comment out this test', () => {
+    // expect(true).toBe(false)
+  // })
+  it("[1] renders a link that reads Home", () => {
+    render(<HelloWorld />);
+    expect(screen.getByText('Home')).toBeVisible()
   })
 })
 
