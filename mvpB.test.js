@@ -59,10 +59,33 @@ describe('Sprint 7 Challenge Learner Tests', () => {
   // test('you can comment out this test', () => {
     // expect(true).toBe(false)
   // })
-  it("[1] renders a link that reads Home", () => {
+  it('[1] renders a link that reads Home', () => {
     render(<HelloWorld />);
-    expect(screen.getByText('Home')).toBeVisible()
+    expect(screen.getByRole('link', { name: 'Home' })).toBeVisible()
   })
+  it('[2] renders a link that reads About', () => {
+    render(<HelloWorld />);
+    expect(screen.getByRole('link', { name: 'About' })).toBeVisible()
+  })
+  it('[3] renders a link that reads Blog', () => {
+    render(<HelloWorld />);
+    expect(screen.getByRole('link', { name: 'Blog' })).toBeVisible()
+  })
+
+it('[4] renders a text that reads "The Truth"', () => {
+  render(<HelloWorld />);
+  expect(screen.getByText('The Truth')).toBeVisible()
+})
+
+it('[5] renders a text that reads "The Truth"', () => {
+  render(<HelloWorld />);
+  expect(screen.getByText('JavaScript is pretty awesome')).toBeVisible()
+})
+
+it('[6] renders a text that includes "javaScript is pretty" (use exact = false)', () => {
+  render(<HelloWorld />);
+  expect(screen.getByText('javaScript is pretty', { exact: false })).toBeVisible()
+ })
 })
 
 function sum(a, b) {
